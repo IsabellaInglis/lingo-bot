@@ -3,6 +3,7 @@ import "./HomePage.scss";
 
 export default function HomePage({
   isLoading,
+  isTopicsLoading,
   languages,
   topics,
   phrases,
@@ -17,6 +18,7 @@ export default function HomePage({
     <>
       <StartOptions
         isLoading={isLoading}
+        isTopicsLoading={isTopicsLoading}
         languages={languages}
         topics={topics}
         phrases={phrases}

@@ -4,13 +4,13 @@
 .message {
   display: flex;
   flex-direction: column;
-  width: 16rem;
+  width: 20rem;
   margin-bottom: 1rem;
-  position: absolute;
+  // position: absolute;
 
   &__content {
-    width: 15rem;
-    height: 4rem;
+    width: 20rem;
+    // height: 4rem;
     border-radius: 15px;
     // margin: 2rem 2rem 0.5rem;
     background-color: $tertiary-background-color;

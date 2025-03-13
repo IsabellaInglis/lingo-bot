@@ -17,10 +17,11 @@
   margin: 5rem auto;
   border-radius: 10px;
   width: 90vw;
-  height: 90vw;
+  // height: 90vw;
   max-width: 30rem;
+  overflow-y: scroll;
   max-height: 30rem;
-  min-width: 20rem;
+  min-width: 30rem;
   border: 6px solid $primary-accent-color;
 }
 

@@ -10,7 +10,8 @@
   }
 
   &__window {
-    height: 75%;
+    height: fit-content;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;

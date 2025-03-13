@@ -11,6 +11,15 @@ const getLanguages = async () => {
   }
 };
 
+const getSingleLanguage = async (languageId) => {
+  try {
+    const { data } = await axios.get(`${BACKEND_URL}/languages/${languageId}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getTopics = async () => {
   try {
     const { data } = await axios.get(`${BACKEND_URL}/settings`);
@@ -62,6 +71,7 @@ const getPhraseByLanguageAndSettings = async (languageId, settingsId) => {
 
 export {
   getLanguages,
+  getSingleLanguage,
   getTopics,
   getAllPhrases,
   getPhraseByLanguage,

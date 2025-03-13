@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
@@ -19,6 +19,7 @@ function App() {
   const [topics, setTopics] = useState(null);
   const [phrases, setPhrases] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isTopicsLoading, setIsTopicsLoading] = useState(true);
 
   const getLanguagesList = async () => {
     const results = await getLanguages();
@@ -29,7 +30,7 @@ function App() {
   const getTopicsList = async () => {
     const results = await getTopics();
     setTopics(results);
-    setIsLoading(false);
+    setIsTopicsLoading(false);
   };
 
   const getPhrases = async (languageId, settingsId) => {
@@ -37,6 +38,8 @@ function App() {
       languageId,
       settingsId
     );
+    if (results.length === 0) {
+    }
     setPhrases(results);
     setIsLoading(false);
   };
@@ -56,6 +59,7 @@ function App() {
             element={
               <HomePage
                 isLoading={isLoading}
+                isTopicsLoading={isTopicsLoading}
                 languages={languages}
                 topics={topics}
                 phrases={phrases}
@@ -72,6 +76,7 @@ function App() {
             path="/chatbot"
             element={
               <ChatBotPage
+                phrases={phrases}
                 nameValue={nameValue}
                 selectedTopic={selectedTopic}
                 selectedLanguage={selectedLanguage}

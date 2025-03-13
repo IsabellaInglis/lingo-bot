@@ -4,6 +4,7 @@ import "./StartOptions.scss";
 
 export default function StartOptions({
   isLoading,
+  isTopicsLoading,
   languages,
   topics,
   getPhrases,
@@ -75,20 +76,22 @@ export default function StartOptions({
           })}
         </label>
         <label className=" start-options__form-label start-options__form-label--topic">
-          Pick a topic:{selectedTopic}
-          <div className="start-options__btn-wrapper">
-            {topics.map((topic) => {
-              return (
-                <button
-                  key={topic.id}
-                  className="start-options__btn"
-                  onClick={() => setSelectedTopic(topic.id)}
-                >
-                  {topic.name}
-                </button>
-              );
-            })}
-          </div>
+          Pick a topic:
+          {!isTopicsLoading && (
+            <div className="start-options__btn-wrapper">
+              {topics.map((topic) => {
+                return (
+                  <button
+                    key={topic.id}
+                    className="start-options__btn"
+                    onClick={() => setSelectedTopic(topic.id)}
+                  >
+                    {topic.name}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </label>
         <p className="start-options__error">{errorMsg}</p>
       </form>
