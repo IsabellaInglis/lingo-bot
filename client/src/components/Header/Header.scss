@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography";
+
+.header {
+  background-color: $secondary-background-color;
+  font-family: Outfit;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2rem;
+  }
+
+  &__btn {
+    border: none;
+    background: $secondary-background-color;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
