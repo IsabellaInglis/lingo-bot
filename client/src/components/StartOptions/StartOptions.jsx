@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "./StartOptions.scss";
 
 export default function StartOptions({
+  isLoading,
+  languages,
+  topics,
+  getPhrases,
   selectedLanguage,
   setSelectedLanguage,
   selectedTopic,
@@ -12,13 +16,12 @@ export default function StartOptions({
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
-  const handleLanguageSelection = (e) => {
-    setSelectedLanguage(e.target.value);
+  const handleLanguageSelection = (e, languageId) => {
+    setSelectedLanguage(languageId);
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(selectedTopic);
 
     const name = e.target.name.value;
 
@@ -33,8 +36,13 @@ export default function StartOptions({
     }
 
     setNameValue(name);
+    getPhrases(selectedLanguage, selectedTopic);
     navigate("/chatbot");
   };
+
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
 
   return (
     <section className="start-options">
@@ -50,63 +58,36 @@ export default function StartOptions({
         </label>
         <label className="start-options__form-label start-options__form-label--language">
           What language would you like to learn?
-          <label>
-            German:
-            <input
-              className="start-options__input"
-              type="radio"
-              name="german"
-              value="German"
-              onChange={handleLanguageSelection}
-              checked={selectedLanguage === "German"}
-            />
-          </label>
-          <label>
-            {" "}
-            French:
-            <input
-              className="start-options__input"
-              type="radio"
-              name="french"
-              value="French"
-              onChange={handleLanguageSelection}
-              checked={selectedLanguage === "French"}
-            />
-          </label>
-          <label>
-            {" "}
-            Spanish:
-            <input
-              className="start-options__input"
-              type="radio"
-              name="spanish"
-              value="Spanish"
-              onChange={handleLanguageSelection}
-              checked={selectedLanguage === "Spanish"}
-            />
-          </label>
+          {languages.map((language) => {
+            return (
+              <label key={language.id}>
+                {language.name}:
+                <input
+                  className="start-options__input"
+                  type="radio"
+                  name={language.name.toLowerCase()}
+                  value={language.name}
+                  onChange={(e) => handleLanguageSelection(e, language.id)}
+                  checked={language.id === selectedLanguage}
+                />
+              </label>
+            );
+          })}
         </label>
         <label className=" start-options__form-label start-options__form-label--topic">
-          Pick a topic:
+          Pick a topic:{selectedTopic}
           <div className="start-options__btn-wrapper">
-            <button
-              className="start-options__btn"
-              onClick={() => setSelectedTopic("cafe")}
-            >
-              Cafe
-            </button>
-            <button
-              className="start-options__btn"
-              onClick={() => setSelectedTopic("restaurant")}
-            >
-              Restaurant
-            </button>
-            <button
-              className="start-options__btn"
-              onClick={() => setSelectedTopic("airport")}
-            >
-              Airport
-            </button>
+            {topics.map((topic) => {
+              return (
+                <button
+                  key={topic.id}
+                  className="start-options__btn"
+                  onClick={() => setSelectedTopic(topic.id)}
+                >
+                  {topic.name}
+                </button>
+              );
+            })}
           </div>
         </label>
         <p className="start-options__error">{errorMsg}</p>
