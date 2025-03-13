@@ -10,9 +10,9 @@ export default function Header() {
         <h1 className="header__title">Lingo Bot</h1>
 
         {location.pathname === "/" ? (
-          <button className="header__btn">Home</button>
-        ) : (
           ""
+        ) : (
+          <button className="header__btn">Home</button>
         )}
       </div>
     </header>

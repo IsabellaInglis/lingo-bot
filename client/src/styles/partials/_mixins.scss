@@ -11,3 +11,16 @@
     @content;
   }
 }
+
+@mixin main-container {
+  background-color: $tertiary-background-color;
+  margin: 5rem auto;
+  border-radius: 10px;
+  width: 90vw;
+  height: 90vw;
+  max-width: 30rem;
+  max-height: 30rem;
+  min-height: 26rem;
+  min-width: 20rem;
+  border: 6px solid $primary-accent-color;
+}

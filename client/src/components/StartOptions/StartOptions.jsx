@@ -2,9 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./StartOptions.scss";
 
-export default function StartOptions() {
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [nameValue, setNameValue] = useState("");
+export default function StartOptions({
+  selectedLanguage,
+  setSelectedLanguage,
+  selectedTopic,
+  setSelectedTopic,
+  setNameValue,
+}) {
+  const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
   const handleLanguageSelection = (e) => {
@@ -13,7 +18,21 @@ export default function StartOptions() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setNameValue(e.target.name.value);
+    console.log(selectedTopic);
+
+    const name = e.target.name.value;
+
+    if (!name.length) {
+      setErrorMsg("Please enter a name");
+      return;
+    }
+
+    if (!selectedLanguage) {
+      setErrorMsg("Please select a language");
+      return;
+    }
+
+    setNameValue(name);
     navigate("/chatbot");
   };
 
@@ -29,7 +48,7 @@ export default function StartOptions() {
             name="name"
           />
         </label>
-        <label className="start-options__form-label">
+        <label className="start-options__form-label start-options__form-label--language">
           What language would you like to learn?
           <label>
             German:
@@ -67,14 +86,30 @@ export default function StartOptions() {
             />
           </label>
         </label>
-        <label className=" start-options__form-label">
+        <label className=" start-options__form-label start-options__form-label--topic">
           Pick a topic:
           <div className="start-options__btn-wrapper">
-            <button className="start-options__btn">Cafe</button>
-            <button className="start-options__btn">Restaurant</button>
-            <button className="start-options__btn">Airport</button>
+            <button
+              className="start-options__btn"
+              onClick={() => setSelectedTopic("cafe")}
+            >
+              Cafe
+            </button>
+            <button
+              className="start-options__btn"
+              onClick={() => setSelectedTopic("restaurant")}
+            >
+              Restaurant
+            </button>
+            <button
+              className="start-options__btn"
+              onClick={() => setSelectedTopic("airport")}
+            >
+              Airport
+            </button>
           </div>
         </label>
+        <p className="start-options__error">{errorMsg}</p>
       </form>
     </section>
   );
