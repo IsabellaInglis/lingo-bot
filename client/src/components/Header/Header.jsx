@@ -7,7 +7,9 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__wrapper">
-        <h1 className="header__title">Lingo Bot</h1>
+        <h1 className="header__title">
+          <Link to="/">Lingo Bot</Link>
+        </h1>
 
         {location.pathname === "/" ? (
           ""

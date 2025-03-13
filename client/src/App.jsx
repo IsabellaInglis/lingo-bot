@@ -4,7 +4,8 @@ import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import ChatBotPage from "./pages/ChatBotPage/ChatBotPage";
-
+import "./utils/api";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 function App() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [nameValue, setNameValue] = useState("");
@@ -37,6 +38,7 @@ function App() {
               />
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>
