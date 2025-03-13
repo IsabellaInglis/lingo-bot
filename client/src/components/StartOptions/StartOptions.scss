@@ -23,6 +23,7 @@
     &--topic {
       margin-bottom: 0;
       padding-bottom: 0;
+      text-align: center;
     }
   }
 
@@ -42,5 +43,8 @@
 
   &__btn {
     @include button;
+    margin-top: 1rem;
+    width: 7rem;
+    box-shadow: rgba(135, 135, 135, 0.05) 0px 2px 8px 0px;
   }
 }
