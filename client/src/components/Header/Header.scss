@@ -5,6 +5,11 @@
   background-color: $secondary-background-color;
   font-family: Outfit;
 
+  &__title a {
+    color: black;
+    text-decoration: none;
+  }
+
   &__wrapper {
     display: flex;
     justify-content: space-between;
