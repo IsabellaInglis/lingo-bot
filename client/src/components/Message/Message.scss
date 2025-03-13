@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.message {
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  margin-bottom: 1rem;
+
+  &__content {
+    width: 15rem;
+    height: 4rem;
+    border-radius: 15px;
+    margin: 2rem 2rem 0.5rem;
+    background-color: $tertiary-background-color;
+    font-weight: 300;
+    padding: 0.7rem 1rem;
+  }
+
+  &__translated-message {
+    color: #3063c5;
+  }
+
+  &__btn {
+    width: 5rem;
+    align-self: flex-end;
+  }
+}

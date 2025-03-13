@@ -56,9 +56,9 @@ export default function StartOptions({
               className="start-options__input"
               type="radio"
               name="german"
-              value="german"
+              value="German"
               onChange={handleLanguageSelection}
-              checked={selectedLanguage === "german"}
+              checked={selectedLanguage === "German"}
             />
           </label>
           <label>
@@ -68,9 +68,9 @@ export default function StartOptions({
               className="start-options__input"
               type="radio"
               name="french"
-              value="french"
+              value="French"
               onChange={handleLanguageSelection}
-              checked={selectedLanguage === "french"}
+              checked={selectedLanguage === "French"}
             />
           </label>
           <label>
@@ -80,9 +80,9 @@ export default function StartOptions({
               className="start-options__input"
               type="radio"
               name="spanish"
-              value="spanish"
+              value="Spanish"
               onChange={handleLanguageSelection}
-              checked={selectedLanguage === "spanish"}
+              checked={selectedLanguage === "Spanish"}
             />
           </label>
         </label>

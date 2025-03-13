@@ -24,3 +24,20 @@
   min-width: 20rem;
   border: 6px solid $primary-accent-color;
 }
+
+@mixin page-title {
+  text-align: center;
+  padding: 0.7rem 0;
+  background-color: $primary-accent-color;
+  margin: 0;
+}
+
+@mixin button {
+  padding: 0.5rem;
+  margin: 0.5rem 1rem 0;
+  background-color: $button-color;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+}

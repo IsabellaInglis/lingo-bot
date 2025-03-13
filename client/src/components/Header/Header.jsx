@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
 
 export default function Header() {
@@ -12,7 +12,9 @@ export default function Header() {
         {location.pathname === "/" ? (
           ""
         ) : (
-          <button className="header__btn">Home</button>
+          <Link to="/">
+            <button className="header__btn">Home</button>
+          </Link>
         )}
       </div>
     </header>

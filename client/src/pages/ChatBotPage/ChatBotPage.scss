@@ -3,4 +3,29 @@
 
 .chatbot {
   @include main-container;
+  background: white;
+
+  &__title {
+    @include page-title;
+  }
+
+  &__window {
+    height: 75%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__window-footer {
+    background-color: rgba(222, 222, 222, 0.657);
+    height: 4rem;
+    border-top: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__btn {
+    @include button;
+    border-radius: 5px;
+  }
 }
