@@ -4,7 +4,7 @@ import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import ChatBotPage from "./pages/ChatBotPage/ChatBotPage";
-
+import './utils/api'
 function App() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [nameValue, setNameValue] = useState("");
