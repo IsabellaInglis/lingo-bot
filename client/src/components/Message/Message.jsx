@@ -1,8 +1,8 @@
 import "./Message.scss";
 
-export default function Message({ greeting, nameValue }) {
+export default function Message({ greeting, nameValue, speaker = 1 }) {
   return (
-    <div className="message">
+    <div className={`message ${speaker === 2 ? "message--speaker-2" : ""}`}>
       <div className="message__content">
         {" "}
         <div className="message__original-message">

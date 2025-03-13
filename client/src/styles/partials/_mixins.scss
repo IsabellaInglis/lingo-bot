@@ -20,7 +20,6 @@
   height: 90vw;
   max-width: 30rem;
   max-height: 30rem;
-  min-height: 26rem;
   min-width: 20rem;
   border: 6px solid $primary-accent-color;
 }
@@ -40,6 +39,7 @@
   border-radius: 10px;
   color: white;
   font-size: 16px;
+  cursor: pointer;
 }
 @mixin flex($direction, $justify, $align) {
   display: flex;
